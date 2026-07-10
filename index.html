@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evelyn (Gyuhyoun) Kim | Portfolio</title>
+  <meta property="og:title" content="Evelyn (Gyuhyoun) Kim | Portfolio" />
+  <meta property="og:description" content="Computer Information Systems @ Baruch College, CUNY" />
+  <meta property="og:image" content="" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="" />
+  <style>
+    :root {
+      --primary: #d4688a;
+      --primary-light: #fdf0f4;
+      --primary-mid: #f7c5d5;
+      --text: #2d1f25;
+      --muted: #8a6672;
+      --border: #f0d9e1;
+      --bg: #ffffff;
+      --bg2: #fdf7f9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', 'Georgia', sans-serif; color: var(--text); background: var(--bg2); }
+    .layout { display: flex; min-height: 100vh; max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; gap: 2rem; align-items: center; }
+    .sidebar { width: 260px; flex-shrink: 0; position: fixed; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; text-align: center; overflow: hidden; padding-top: 2rem; }
+    .sidebar-inner { width: 100%; transform-origin: center center; }
+    .profile-avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; box-shadow: 0 4px 24px rgba(212,104,138,0.18); border: 3px solid var(--primary-mid); flex-shrink: 0; }
+    .profile-name { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.2rem; }
+    .profile-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
+    .profile-meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem; padding-left: 3.5rem; width: 100%; }
+    .profile-divider { border: none; border-top: 1px solid var(--border); margin: 1rem 0; width: 100%; }
+    .profile-nav { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; width: 100%; }
+    .profile-nav a { display: block; padding: 7px 12px; border-radius: 8px; text-decoration: none; color: var(--muted); font-size: 0.85rem; transition: all 0.2s; }
+    .profile-nav a:hover { background: var(--primary-light); color: var(--primary); }
+    .contact-btns { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; width: 100%; }
+    .contact-btn { display: block; width: 100%; text-align: center; padding: 9px 16px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; font-family: inherit; }
+    .contact-btn-primary { background: var(--primary); color: #fff; }
+    .contact-btn-primary:hover { background: #c05579; }
+    .contact-btn-outline { border: 1px solid var(--border); color: var(--muted); background: var(--bg); }
+    .contact-btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+    .main-content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1.5rem; margin-left: 290px; }
+    .card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.8rem; }
+    .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.5rem; }
+    .card-line { width: 32px; height: 3px; background: var(--primary); border-radius: 2px; margin-bottom: 1.4rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .about-item h4 { font-size: 0.78rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .about-item p, .about-item li { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .about-item ul { padding-left: 1rem; }
+    .about-who { grid-column: 1 / -1; }
+    .course-role { font-size: 0.82rem; font-weight: 600; color: var(--muted); margin-top: 0.25rem; }
+    .gpa-badge { display: inline-block; background: var(--primary-light); color: var(--primary); font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-left: 4px; }
+    .skills-section { margin-bottom: 1.2rem; }
+    .skills-label { font-size: 0.78rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-chip { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 5px 13px; font-size: 0.83rem; font-weight: 500; transition: all 0.2s; }
+    .skill-chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+    .cert-chip { background: var(--primary-light); border: 1px solid var(--primary-mid); border-radius: 8px; padding: 5px 13px; font-size: 0.83rem; font-weight: 600; color: var(--primary); }
+    .courses-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .course-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem; transition: all 0.2s; background: var(--bg); }
+    .course-card:hover { box-shadow: 0 4px 20px rgba(212,104,138,0.1); border-color: var(--primary); }
+    .course-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .course-name { font-size: 0.92rem; font-weight: 700; }
+    .course-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.8rem; }
+    .course-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+    .tag-done { background: var(--primary-light); color: var(--primary); }
+    .tag-progress { background: #fef9c3; color: #92400e; border: 1px solid #fde68a; }
+    .course-files { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .file-link { font-size: 0.8rem; font-weight: 600; text-decoration: none; color: var(--primary); background: var(--primary-light); padding: 4px 12px; border-radius: 6px; transition: all 0.2s; border: 1px solid var(--primary-mid); }
+    .file-link:hover { background: var(--primary); color: #fff; }
+    @keyframes dogShake {
+      0%   { transform: rotate(0deg); }
+      15%  { transform: rotate(-18deg); }
+      30%  { transform: rotate(18deg); }
+      45%  { transform: rotate(-18deg); }
+      60%  { transform: rotate(18deg); }
+      75%  { transform: rotate(-10deg); }
+      90%  { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+    }
+    .dog-shaking { animation: dogShake 0.8s ease-in-out; }
+    @media (max-width: 720px) {
+      .layout { flex-direction: column; padding: 0.8rem; gap: 1rem; }
+      .sidebar { width: 100%; position: static; transform: none; }
+      .profile-avatar { width: 100px; height: 100px; margin: 0 auto 0.8rem; }
+      .profile-name { font-size: 1rem; }
+      .profile-meta { padding-left: 1rem; font-size: 0.8rem; }
+      .profile-nav { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.2rem; }
+      .profile-nav a { padding: 5px 10px; font-size: 0.8rem; }
+      .contact-btns { flex-direction: row; flex-wrap: wrap; }
+      .contact-btn { flex: 1; min-width: 120px; font-size: 0.78rem; padding: 8px 8px; }
+      .main-content { margin-left: 0; gap: 1rem; }
+      .card { padding: 1.2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .about-item p, .about-item li { font-size: 0.83rem; }
+      .course-header { flex-direction: column; gap: 0.3rem; }
+      .skills-grid { gap: 0.4rem; }
+      .skill-chip, .cert-chip { font-size: 0.78rem; padding: 4px 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+    <img src="profile-photo.jpg" alt="Evelyn Kim" class="profile-avatar" />
+    <div class="profile-name">Evelyn (Gyuhyoun) Kim</div>
+    <div class="profile-sub">Computer Information Systems (BBA)<br>Zicklin School of Business</div>
+    <div class="profile-meta">📍 New York, NY</div>
+    <div class="profile-meta">🎓 Baruch College, CUNY</div>
+    <div class="profile-meta">✨ GPA: 3.7 / 4.0</div>
+    <div class="profile-meta">🌐 English · Korean</div>
+    <hr class="profile-divider" />
+    <ul class="profile-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#courses">Relevant Courses</a></li>
+    </ul>
+    <div class="contact-btns">
+      <button onclick="copyEmail('GYUHYOUN.KIM@baruchmail.cuny.edu', this)" class="contact-btn contact-btn-primary">🎓 School Email</button>
+      <button onclick="copyEmail('gyuutti33@gmail.com', this)" class="contact-btn contact-btn-outline">📧 Personal Email</button>
+      <script>
+      function copyEmail(email, btn) {
+        navigator.clipboard.writeText(email).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ ' + email;
+          btn.style.fontSize = '0.72rem';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.fontSize = ''; }, 3000);
+        });
+      }
+      </script>
+      <button onclick="window.open('https://www.linkedin.com/in/gyuhyoun-evelyn-kim', '_blank')" class="contact-btn contact-btn-outline">💼 LinkedIn</button>
+    </div>
+
+    <div id="doggieZone" style="width:100%;height:160px;position:relative;background:var(--primary-light);border-radius:12px;overflow:hidden;border:1px solid var(--primary-mid);margin-top:1rem;box-sizing:border-box;">
+      <div id="doggieBubble" style="position:absolute;background:white;border:1.5px solid var(--primary-mid);border-radius:10px;padding:4px 10px;font-size:10px;font-weight:700;color:var(--primary);white-space:nowrap;z-index:10;pointer-events:none;line-height:1.5;">Hi there!<br>(Click me!)</div>
+      <img id="doggieImg" src="doggie.jpg" style="position:absolute;width:72px;height:72px;border-radius:50%;object-fit:contain;border:2.5px solid var(--primary-mid);cursor:pointer;background:white;" />
+    </div>
+    <script>
+    (function(){
+      const dog = document.getElementById('doggieImg');
+      const zone = document.getElementById('doggieZone');
+      const bubble = document.getElementById('doggieBubble');
+      const size = 72;
+      let x = 10, y = 40, vx = 1.1, vy = 0.8, timer = null;
+
+      function updateBubblePos() {
+        const bw = bubble.offsetWidth || 130;
+        const bh = bubble.offsetHeight || 36;
+        const zw = zone.clientWidth;
+        const gap = 8;
+        // Center bubble horizontally on dog, clamp to zone edges
+        let bx = x + size / 2 - bw / 2;
+        if (bx < 2) bx = 2;
+        if (bx + bw > zw - 2) bx = zw - bw - 2;
+        // Always above dog if space, else below — gap stays fixed
+        let by = y - bh - gap;
+        if (by < 2) by = y + size + gap;
+        bubble.style.left = bx + 'px';
+        bubble.style.top = by + 'px';
+      }
+
+      function animate() {
+        const w = zone.clientWidth;
+        const h = zone.clientHeight;
+        const maxX = w - size;
+        const maxY = h - size;
+        x += vx; y += vy;
+        if (x <= 0) { x = 0; vx = Math.abs(vx)*(0.9+Math.random()*0.15); vy += (Math.random()-0.5)*0.2; }
+        if (x >= maxX) { x = maxX; vx = -Math.abs(vx)*(0.9+Math.random()*0.15); vy += (Math.random()-0.5)*0.2; }
+        if (y <= 0) { y = 0; vy = Math.abs(vy)*(0.9+Math.random()*0.15); vx += (Math.random()-0.5)*0.2; }
+        if (y >= maxY) { y = maxY; vy = -Math.abs(vy)*(0.9+Math.random()*0.15); vx += (Math.random()-0.5)*0.2; }
+        vx = Math.max(-1.8, Math.min(1.8, vx));
+        vy = Math.max(-1.8, Math.min(1.8, vy));
+        x = Math.max(0, Math.min(maxX, x));
+        y = Math.max(0, Math.min(maxY, y));
+        dog.style.left = x + 'px';
+        dog.style.top = y + 'px';
+        updateBubblePos();
+      }
+
+      setInterval(animate, 16);
+
+      dog.addEventListener('click', () => {
+        bubble.innerHTML = "Thank you for visiting<br>my sister's GitHub 🐾";
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          bubble.innerHTML = 'Hi there!<br>(Click me!)';
+        }, 7000);
+        dog.classList.remove('dog-shaking');
+        void dog.offsetWidth; // reflow to restart animation
+        dog.classList.add('dog-shaking');
+        dog.addEventListener('animationend', () => dog.classList.remove('dog-shaking'), { once: true });
+
+      });
+    })();
+    </script>
+  </div><!-- end sidebar-inner -->
+  <script>
+    (function() {
+      const inner = document.querySelector('.sidebar-inner');
+      function scaleSidebar() {
+        inner.style.transform = 'scale(0.95)';
+        const avail = window.innerHeight * 0.96;
+        const h = inner.scrollHeight;
+        if (h * 0.95 > avail) {
+          inner.style.transform = 'scale(' + (avail / h) + ')';
+        }
+      }
+      scaleSidebar();
+      window.addEventListener('resize', scaleSidebar);
+    })();
+  </script>
+  </aside>
+
+  <main class="main-content">
+
+    <div class="card" id="about">
+      <div class="card-title">🙋 About Me</div>
+      <div class="card-line"></div>
+      <div class="about-grid">
+        <div class="about-item about-who">
+          <h4>Who I Am</h4>
+          <p>I'm a senior student studying CIS at Baruch College, CUNY with a background in both technology and business. I'm currently a fellow in the NYC Tech Talent Pipeline Residency (TTPR) data bootcamp, working on real-world projects in SQL, Tableau, and Excel. Outside of school, I explore cafes and love to capture beautiful moments through my eyes and camera.</p>
+        </div>
+        <div class="about-item">
+          <h4>Education</h4>
+          <ul>
+            <li>Baruch College, CUNY <span class="gpa-badge">GPA 3.7</span></li>
+            <li>Zicklin School of Business</li>
+            <li>Computer Information Systems (BBA)</li>
+            <li>Expected May 2028</li>
+            <li>⭐ Dean's List</li>
+          </ul>
+        </div>
+        <div class="about-item">
+          <h4>Location</h4>
+          <p>New York, NY<br>Open to in-person and remote roles</p>
+        </div>
+        <div class="about-item">
+          <h4>Interests</h4>
+          <ul>
+            <li>Data Analytics</li>
+            <li>Information Systems</li>
+            <li>Business Intelligence</li>
+            <li>Accounting & Finance</li>
+          </ul>
+        </div>
+        <div class="about-item">
+          <h4>Languages</h4>
+          <p>English (Fluent)<br>Korean (Native)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="skills">
+      <div class="card-title">💻 Skills</div>
+      <div class="card-line"></div>
+      <div class="skills-section">
+        <div class="skills-label">🏅 Certification</div>
+        <div class="skills-grid">
+          <span class="cert-chip">Google Analytics (GA4) · 2026</span>
+          <span class="cert-chip" style="background:#fff7ed; color:#c2410c; border-color:#fed7aa;">IBM Data Analytics · Coursera (In Progress)</span>
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skills-label">Technical</div>
+        <div class="skills-grid">
+          <div class="skill-chip">Python</div>
+          <div class="skill-chip">C++</div>
+          <div class="skill-chip">SQL</div>
+          <div class="skill-chip">Pandas</div>
+          <div class="skill-chip">Database Design</div>
+          <div class="skill-chip">ERD</div>
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skills-label">Software & Tools</div>
+        <div class="skills-grid">
+          <div class="skill-chip">Microsoft Excel</div>
+          <div class="skill-chip">Tableau</div>
+          <div class="skill-chip">Jupyter Notebook</div>
+          <div class="skill-chip">QuickBooks</div>
+          <div class="skill-chip">Google Workspace</div>
+          <div class="skill-chip">Microsoft PowerPoint</div>
+          <div class="skill-chip">Microsoft Word</div>
+          <div class="skill-chip">Canva</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="projects">
+      <div class="card-title">🚀 Projects</div>
+      <div class="card-line"></div>
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-header">
+            <div>
+              <div class="course-name">NYC Tech Talent Pipeline Residency</div>
+              <div class="course-role">Data Fellow</div>
+            </div>
+            <span class="course-tag tag-done">June 2026 – Present</span>
+          </div>
+          <div class="course-desc">Analyzed sales performance and stock price trends for major technology companies including NVIDIA and Apple using SQL and Tableau, developing interactive dashboards to present key findings and business insights to stakeholders. Applied Excel formulas, data tables, and charts to complete collaborative, real-world business projects, and regularly presented group results to build professional communication skills.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="experience">
+      <div class="card-title">💼 Work Experience</div>
+      <div class="card-line"></div>
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-header">
+            <div>
+              <div class="course-name">MXN Commerce USA, Inc.</div>
+              <div class="course-role">Accounting & Reporting Intern</div>
+            </div>
+            <span class="course-tag tag-done">Jan 2023 – Jan 2024</span>
+          </div>
+          <div class="course-desc">Built weekly and monthly Excel reports using PivotTables, VLOOKUP, and charts to analyze sales, inventory, and cash flow data across five international branches. Maintained accurate financial transaction records and AP/AR data in QuickBooks to ensure consistency across reporting cycles, and organized financial documents on a shared internal server spanning offices in the US, UK, South Korea, Italy, and Japan.</div>
+        </div>
+        <div class="course-card">
+          <div class="course-header">
+            <div>
+              <div class="course-name">United States Law Enforcement Coalition (USLEC)</div>
+              <div class="course-role">Board Member · IT & Accounting Support</div>
+            </div>
+            <span class="course-tag tag-done">Jan 2023 – Jan 2026</span>
+          </div>
+          <div class="course-desc">Tracked and documented organizational funds and event budgets for events with 50+ attendees, maintaining accurate financial records throughout. Managed digital records and operational data through cloud storage and shared drives, improving accessibility and consistency across the organization. Received an Appreciation Award for contributions as a board member and volunteer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="courses">
+      <div class="card-title">📚 Relevant Courses</div>
+      <div class="card-line"></div>
+      <div class="courses-grid">
+
+        <div class="course-card">
+          <div class="course-header">
+            <div class="course-name">CIS 2300 - Programming and Computational Thinking</div>
+            <span class="course-tag tag-done">Fall 2025</span>
+          </div>
+          <div class="course-desc">Learned API and Pandas using Jupyter Notebook. Worked with Wikipedia API and Pandas to build an interactive sports data program.</div>
+          <div class="course-files">
+            <a href="sports.csv" class="file-link">📄 Sports.csv</a>
+            <a href="https://nbviewer.org/github/evelyn-gyuhyoun-kim/evelyn-gyuhyoun-kim.github.io/blob/main/%5BCIS%202300%5D%20Sports%20Program.ipynb" target="_blank" class="file-link">💻 Sports Program.ipynb</a>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-header">
+            <div class="course-name">CIS 3100 - Object-Oriented Programming I</div>
+            <span class="course-tag tag-done">Spring 2026</span>
+          </div>
+          <div class="course-desc">Spring 2026 · Object-oriented programming using C++.</div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-header">
+            <div class="course-name">CIS 3400 - Database Management Systems</div>
+            <span class="course-tag tag-done">Spring 2026</span>
+          </div>
+          <div class="course-desc">Spring 2026 · Building Maintenance & Work Order Management System - designed using ERD, RDM, and Normalization, implemented through SQL.</div>
+          <div class="course-files">
+            <a href="%5BCIS%203400%5D%20Building%20Maintenance%20%26%20Work%20Order%20Management%20System.pdf" target="_blank" class="file-link">📄 DB Management System.pdf</a>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-header">
+            <div class="course-name">CIS 3620 - FinTech: Principles and Applications</div>
+            <span class="course-tag tag-done">Spring 2026</span>
+          </div>
+          <div class="course-desc">Spring 2026 · Business analysis of Klarna and a research study on consumer purchase psychology in the BNPL market.</div>
+          <div class="course-files">
+            <a href="%5BCIS%203620%5D%20Klarna%20and%20the%20Hidden%20Risks%20of%20BNPL.pdf" target="_blank" class="file-link">📄 Klarna BNPL Report.pdf</a>
+            <a href="%5BCIS%203620%5D%20Klarna%20and%20the%20Hidden%20Risks%20of%20BNPL%20Presentation.pptx" class="file-link">📊 Klarna BNPL Slides.pptx</a>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-header">
+            <div class="course-name">MKT 3000 - Marketing Foundations</div>
+            <span class="course-tag tag-done">Fall 2025</span>
+          </div>
+          <div class="course-desc">Group project comparing Netflix and Disney's streaming services - analyzing business strategy, market positioning, content offerings, and competitive differentiation.</div>
+          <div class="course-files">
+            <a href="%5BMKT%203000%5D%20Disney%20vs%20Netflix%20Group%20Project.pptx" class="file-link">📊 Disney vs Netflix.pptx</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer style="text-align:center; padding:1.5rem; color:var(--muted); font-size:0.8rem; border-top:1px solid var(--border); background:var(--bg);">
+  © 2025 Evelyn (Gyuhyoun) Kim · Built with GitHub Pages
+</footer>
+</body>
+</html>
