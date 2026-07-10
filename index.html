@@ -47,6 +47,8 @@
     .about-item h4 { font-size: 0.78rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
     .about-item p, .about-item li { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
     .about-item ul { padding-left: 1rem; }
+    .about-who { grid-column: 1 / -1; }
+    .course-role { font-size: 0.82rem; font-weight: 600; color: var(--muted); margin-top: 0.25rem; }
     .gpa-badge { display: inline-block; background: var(--primary-light); color: var(--primary); font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-left: 4px; }
     .skills-section { margin-bottom: 1.2rem; }
     .skills-label { font-size: 0.78rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
@@ -113,6 +115,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#courses">Relevant Courses</a></li>
     </ul>
     <div class="contact-btns">
@@ -202,9 +205,9 @@
       <div class="card-title">🙋 About Me</div>
       <div class="card-line"></div>
       <div class="about-grid">
-        <div class="about-item">
+        <div class="about-item about-who">
           <h4>Who I Am</h4>
-          <p>I'm a senior student studying CIS at Baruch College, CUNY with a background in both technology and business. I'm excited to join the Tech Talent Pipeline Residency (TTPR) program this summer. Outside of school, I explore cafes and love to capture beautiful moments through my eyes and camera.</p>
+          <p>I'm a senior student studying CIS at Baruch College, CUNY with a background in both technology and business. I'm currently a fellow in the NYC Tech Talent Pipeline Residency (TTPR) data bootcamp, working on real-world projects in SQL, Tableau, and Excel. Outside of school, I explore cafes and love to capture beautiful moments through my eyes and camera.</p>
         </div>
         <div class="about-item">
           <h4>Education</h4>
@@ -217,6 +220,10 @@
           </ul>
         </div>
         <div class="about-item">
+          <h4>Location</h4>
+          <p>New York, NY<br>Open to in-person and remote roles</p>
+        </div>
+        <div class="about-item">
           <h4>Interests</h4>
           <ul>
             <li>Data Analytics</li>
@@ -224,10 +231,6 @@
             <li>Business Intelligence</li>
             <li>Accounting & Finance</li>
           </ul>
-        </div>
-        <div class="about-item">
-          <h4>Location</h4>
-          <p>New York, NY<br>Open to in-person and remote roles</p>
         </div>
         <div class="about-item">
           <h4>Languages</h4>
@@ -251,21 +254,22 @@
         <div class="skills-grid">
           <div class="skill-chip">Python</div>
           <div class="skill-chip">C++</div>
-          <div class="skill-chip">Jupyter Notebook</div>
-          <div class="skill-chip">Pandas</div>
           <div class="skill-chip">SQL</div>
-          <div class="skill-chip">Microsoft Excel</div>
-          <div class="skill-chip">Database Design & ERD</div>
+          <div class="skill-chip">Pandas</div>
+          <div class="skill-chip">Database Design</div>
+          <div class="skill-chip">ERD</div>
         </div>
       </div>
       <div class="skills-section">
         <div class="skills-label">Software & Tools</div>
         <div class="skills-grid">
+          <div class="skill-chip">Microsoft Excel</div>
+          <div class="skill-chip">Tableau</div>
+          <div class="skill-chip">Jupyter Notebook</div>
           <div class="skill-chip">QuickBooks</div>
-          <div class="skill-chip">Microsoft Teams</div>
-          <div class="skill-chip">Microsoft Word</div>
           <div class="skill-chip">Google Workspace</div>
           <div class="skill-chip">Microsoft PowerPoint</div>
+          <div class="skill-chip">Microsoft Word</div>
           <div class="skill-chip">Canva</div>
         </div>
       </div>
@@ -277,10 +281,40 @@
       <div class="courses-grid">
         <div class="course-card">
           <div class="course-header">
-            <div class="course-name">Hack the Future - Building & Securing AI Agents</div>
-            <span class="course-tag tag-done">April 2026</span>
+            <div>
+              <div class="course-name">NYC Tech Talent Pipeline Residency</div>
+              <div class="course-role">Data Fellow</div>
+            </div>
+            <span class="course-tag tag-done">June 2026 – Present</span>
           </div>
-          <div class="course-desc">New York, NY · Built an AI agent using n8n and developed a chatbot integrating OpenAI, Gemini, and Wikipedia APIs. Participated in an AI Capture-the-Flag (CTF) cybersecurity challenge led by GT EdgeAI.</div>
+          <div class="course-desc">Analyzed sales performance and stock price trends for major technology companies including NVIDIA and Apple using SQL and Tableau, developing interactive dashboards to present key findings and business insights to stakeholders. Applied Excel formulas, data tables, and charts to complete collaborative, real-world business projects, and regularly presented group results to build professional communication skills.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="experience">
+      <div class="card-title">💼 Work Experience</div>
+      <div class="card-line"></div>
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-header">
+            <div>
+              <div class="course-name">MXN Commerce USA, Inc.</div>
+              <div class="course-role">Accounting & Reporting Intern</div>
+            </div>
+            <span class="course-tag tag-done">Jan 2023 – Jan 2024</span>
+          </div>
+          <div class="course-desc">Built weekly and monthly Excel reports using PivotTables, VLOOKUP, and charts to analyze sales, inventory, and cash flow data across five international branches. Maintained accurate financial transaction records and AP/AR data in QuickBooks to ensure consistency across reporting cycles, and organized financial documents on a shared internal server spanning offices in the US, UK, South Korea, Italy, and Japan.</div>
+        </div>
+        <div class="course-card">
+          <div class="course-header">
+            <div>
+              <div class="course-name">United States Law Enforcement Coalition (USLEC)</div>
+              <div class="course-role">Board Member · IT & Accounting Support</div>
+            </div>
+            <span class="course-tag tag-done">Jan 2023 – Jan 2026</span>
+          </div>
+          <div class="course-desc">Tracked and documented organizational funds and event budgets for events with 50+ attendees, maintaining accurate financial records throughout. Managed digital records and operational data through cloud storage and shared drives, improving accessibility and consistency across the organization. Received an Appreciation Award for contributions as a board member and volunteer.</div>
         </div>
       </div>
     </div>
@@ -305,7 +339,7 @@
         <div class="course-card">
           <div class="course-header">
             <div class="course-name">CIS 3100 - Object-Oriented Programming I</div>
-            <span class="course-tag tag-progress">In Progress</span>
+            <span class="course-tag tag-done">Spring 2026</span>
           </div>
           <div class="course-desc">Spring 2026 · Object-oriented programming using C++.</div>
         </div>
@@ -313,17 +347,24 @@
         <div class="course-card">
           <div class="course-header">
             <div class="course-name">CIS 3400 - Database Management Systems</div>
-            <span class="course-tag tag-progress">In Progress</span>
+            <span class="course-tag tag-done">Spring 2026</span>
           </div>
           <div class="course-desc">Spring 2026 · Building Maintenance & Work Order Management System - designed using ERD, RDM, and Normalization, implemented through SQL.</div>
+          <div class="course-files">
+            <a href="%5BCIS%203400%5D%20Building%20Maintenance%20%26%20Work%20Order%20Management%20System.pdf" target="_blank" class="file-link">📄 DB Management System.pdf</a>
+          </div>
         </div>
 
         <div class="course-card">
           <div class="course-header">
             <div class="course-name">CIS 3620 - FinTech: Principles and Applications</div>
-            <span class="course-tag tag-progress">In Progress</span>
+            <span class="course-tag tag-done">Spring 2026</span>
           </div>
           <div class="course-desc">Spring 2026 · Business analysis of Klarna and a research study on consumer purchase psychology in the BNPL market.</div>
+          <div class="course-files">
+            <a href="%5BCIS%203620%5D%20Klarna%20and%20the%20Hidden%20Risks%20of%20BNPL.pdf" target="_blank" class="file-link">📄 Klarna BNPL Report.pdf</a>
+            <a href="%5BCIS%203620%5D%20Klarna%20and%20the%20Hidden%20Risks%20of%20BNPL%20Presentation.pptx" class="file-link">📊 Klarna BNPL Slides.pptx</a>
+          </div>
         </div>
 
         <div class="course-card">
